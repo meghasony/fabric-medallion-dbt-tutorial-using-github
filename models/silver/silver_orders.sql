@@ -12,7 +12,12 @@ WITH ranked AS (
 
 )
 
-SELECT *
+SELECT
+    order_id,
+    customer_id,
+    product_id,
+    CAST(quantity AS INT) AS quantity,
+    order_date
 FROM ranked
 WHERE rn = 1
 AND quantity IS NOT NULL
