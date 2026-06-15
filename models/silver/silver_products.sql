@@ -4,6 +4,6 @@ SELECT
     product_id,
     product_name,
     category,
-    {{ dbt_utils.safe_cast("price", api.Column.translate_type("float")) }} AS price
+    TRY_CAST(price AS DECIMAL(10,2)) AS price
 FROM bronze_products
-WHERE {{ dbt_utils.safe_cast("price", api.Column.translate_type("float")) }} IS NOT NULL
+WHERE TRY_CAST(price AS DECIMAL(10,2)) IS NOT NULL
