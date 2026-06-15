@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: dbo
+    tables:
+      - name: customers
+      - name: products
+      - name: orders
