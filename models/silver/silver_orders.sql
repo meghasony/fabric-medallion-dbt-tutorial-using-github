@@ -15,4 +15,4 @@ WITH ranked AS (
 SELECT *
 FROM ranked
 WHERE rn = 1
-AND quantity IS NOT NULL
+AND TRY_CAST(quantity AS INT) IS NOT NULL
