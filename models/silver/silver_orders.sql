@@ -8,7 +8,7 @@ WITH ranked AS (
             PARTITION BY order_id
             ORDER BY order_date DESC
         ) AS rn
-    FROM bronze_orders
+    FROM {{ source('bronze', 'orders') }}
 
 )
 
