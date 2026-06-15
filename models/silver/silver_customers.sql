@@ -4,8 +4,11 @@ WITH cleaned AS (
 
     SELECT
         customer_id,
-        INITCAP(customer_name) AS customer_name,
-        COALESCE(UPPER(country), 'UNKNOWN') AS country
+        UPPER(LEFT(customer_name, 1)) + LOWER(SUBSTRING(customer_name, 2, LEN(customer_name))) AS customer_name,
+        {{ dbt_utils.coalesce([
+            "NULLIF(LTRIM(RTRIM(country)), '')",
+            "'UNKNOWN'"
+        ]) }} AS country
     FROM bronze_customers
 
 )
