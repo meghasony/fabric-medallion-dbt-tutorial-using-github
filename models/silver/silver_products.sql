@@ -5,5 +5,5 @@ SELECT
     product_name,
     category,
     TRY_CAST(price AS DECIMAL(10,2)) AS price
-FROM bronze_products
+FROM {{ source('bronze', 'products') }}
 WHERE TRY_CAST(price AS DECIMAL(10,2)) IS NOT NULL
