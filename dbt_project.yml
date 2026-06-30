@@ -1,4 +1,4 @@
-name: zava_medallion_dbt
+name: zava_medallion_dbt123
 version: 1.0
 config-version: 2
 
@@ -7,7 +7,7 @@ profile: zava_profile
 model-paths: ["models"]
 
 models:
-  zava_medallion_dbt:
+  zava_medallion_dbt123:
     silver:
       materialized: table
       tags: ["silver"]
